@@ -4,7 +4,7 @@ This repository contains a Python script for the Extract, Transform, and Load (E
 
 The primary objective of this script is to facilitate the extraction of data from PostgreSQL tables and a CSV file. Subsequently, it orchestrates the storage of this data in a local directory. Additionally, the script is designed to merge the 'order' table with the CSV file's contents and subsequently load this new dataset into another PostgreSQL database.
 
-**Requirements:**
+**Requirements for the script:**
 
 1. **Step-by-Step Execution**: The script allows for the execution of each step independently. This flexibility enables users to run only the necessary steps as needed.
 
@@ -32,6 +32,12 @@ Before running the ETL process, ensure you have the following prerequisites:
 
 ## How does the script work?
 
+### Scripts:
+
+- [Full Script](scripts/northwind_etl_process.py)
+- [Step 1](scripts/step1_northwind_etl_process.py)
+- [Step 2](scripts/step2_northwind_etl_process.py)
+
 ### Step 1 - Data Extraction and Staging
 
 1. **Database Connection**: Configure the source database connection parameters in the script:
@@ -45,6 +51,8 @@ Before running the ETL process, ensure you have the following prerequisites:
 2. **Staging Area**: Specify the folder path where the extracted data will be staged. By default, the postgres tables are set to `"C:/Users/caiqr/Documents/Projetos/northwind/data/postgres/"` and the CSV file is set to `"C:/Users/caiqr/Documents/Projetos/northwind/data/csv/"`.
 
 3. **Step 1**: At step 1, the script will extract tables from the Northwind database, save them as CSV files in the staging area with a timestamp, and also export the `order_details` table to a separate CSV file. If a error occurs at this step, the script will close and an error message will be printed.
+
+4. Date: the process date will be asked and should be inputed in the format "yyyy-mm-dd". If date is today, just leave it blank.
 
 ### Step 2 - Data Transformation and Loading
 
